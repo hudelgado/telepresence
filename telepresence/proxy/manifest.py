@@ -63,6 +63,7 @@ def make_new_proxy_pod_manifest(
     run_id: str,
     image_name: str,
     service_account: str,
+    disable_service_links: bool,
     env: Dict[str, str],
 ) -> Manifest:
 
@@ -72,6 +73,7 @@ def make_new_proxy_pod_manifest(
     }
 
     pod_spec = {
+        "enableServiceLinks": (not disable_service_links),
         "containers": [{
             "name": "telepresence",
             "image": image_name,

@@ -143,6 +143,7 @@ def setup(runner: Runner,
         args.expose,
         deployment_env,
         args.service_account or "",
+        args.disable_service_links,
     )
 
     # Figure out which operation the user wants

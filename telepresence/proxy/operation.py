@@ -37,6 +37,7 @@ ProxyIntent = NamedTuple(
         ("expose", PortMapping),
         ("env", Dict[str, str]),
         ("service_account", str),
+        ("disable_service_links", bool),
     ]
 )
 
@@ -108,6 +109,7 @@ class New(ProxyOperation):
             runner.session_id,
             get_image_name(runner, self.intent.expose),
             self.intent.service_account,
+            self.intent.disable_service_links,
             self.intent.env,
         )
         self.manifests.append(pod)

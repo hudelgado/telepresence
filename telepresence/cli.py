@@ -289,6 +289,13 @@ def parse_args(in_args: Optional[List[str]] = None) -> argparse.Namespace:
         )
     )
     parser.add_argument(
+        "--disableservicelinks",
+        dest="disable_service_links",
+        default=False,
+        action='store_true',
+        help=("If set disables the Kubernetes enableServiceLinks.")
+    )
+    parser.add_argument(
         "--expose",
         action='append',
         metavar="PORT[:REMOTE_PORT]",
