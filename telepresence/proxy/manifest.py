@@ -74,6 +74,9 @@ def make_new_proxy_pod_manifest(
 
     pod_spec = {
         "enableServiceLinks": (not disable_service_links),
+        "securityContext": {
+            "fsGroup": 1000
+        },
         "containers": [{
             "name": "telepresence",
             "image": image_name,
